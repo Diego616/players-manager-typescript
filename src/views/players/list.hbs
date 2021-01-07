@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>PLAYERS LIST</h1>
+  </div>
+</div>
+{{#each players}}
+  <div class="row playerRow">
+    <div class="col-md-3">
+      <h3>
+        {{name}}
+      </h3>
+    </div>
+    <div class="col-md-2">
+      <h3>
+        {{alias}}
+      </h3>
+    </div>
+    <div class="col-md-3">
+      <h3>
+        {{email}}
+      </h3>
+    </div>
+    <div class="col-md-2">
+      <a href="/players/edit/{{id}}" class="btn btn-primary btnList">
+        Edit
+      <a>
+    </div>
+    <div class="col-md-2">
+      <a href="/players/delete/{{id}}" class="btn btn-danger btnList">
+        Delete
+      </a>
+    </div>
+  </div>
+{{/each}}

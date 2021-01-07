@@ -1,0 +1,22 @@
+.playerRow {
+  border: solid 1px #000000;
+  margin-top: 2px;
+  padding: 2px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.btnList {
+  width: 80px;
+  border-radius: 4px;
+}
+
+body {
+  background: #232526;
+  color: white;
+}
+
+.jumbotron {
+  background: #303030;
+}
