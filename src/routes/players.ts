@@ -17,13 +17,30 @@ router.route('/create')
 
 router.route('/list')
   .get( async (req: Request, res: Response) => {
-    const players = await Player.find({}, {
-      limit: 10,
-      
-    })
-    console.log(players)
-    res.render('players/list',  {players} )
+    const next: number = 2
+    const previous: string = ''
+    const players = await Player.find().limit(10)
+    res.render('players/list',  {players, next, previous} )
   })
+
+router.route('/list/:page')
+  .get( async (req: Request, res: Response) => {
+    const { page } = req.params
+    let pagenumber: number =+ page
+    const next = pagenumber + 1
+    const previous = pagenumber - 1
+    const players = await Player.find().limit(10).skip((pagenumber - 1) * 10)
+    res.render('players/list',  {players, next, previous} )
+  })
+
+router.route('/search')
+  .get( async (req: Request, res: Response) => {
+    const { name } = req.query
+    console.log(name)
+    const player = await Player.findOne({ name })
+    console.log(player)
+    res.render('players/search',  {player} )
+  }) 
 
 router.route('/delete/:id')
   .get( async (req: Request, res: Response) => {
