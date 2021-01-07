@@ -19,7 +19,8 @@ class Application {
         this.routes();
     }
     settings() {
-        this.app.set('port', 3000);
+        this.app.set('host', '0.0.0.0')
+        this.app.set('port', 5000);
         this.app.set('views', path_1.default.join(__dirname, 'views'));
         this.app.engine('.hbs', express_handlebars_1.default({
             handlebars: allow_prototype_access_1.allowInsecurePrototypeAccess(handlebars_1.default),
@@ -41,9 +42,7 @@ class Application {
         this.app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
     }
     start() {
-        this.app.listen(this.app.get('port'), () => {
-            console.log('Server runnig on port:', this.app.get('port'));
-        });
+        this.app.listen(this.app.get('port'), this.app.get('host'));
     }
 }
 exports.default = Application;
