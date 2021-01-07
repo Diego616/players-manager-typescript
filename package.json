@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "hbscopy": "ncp ./src/views ./dist/views",
     "public": "ncp ./src/public ./dist/public",
-    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
-    "clean": "rimraf ./dist"
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
+    "clean": "rimraf ./dist",
+    "start": "node ./dist/server.js"
   },
   "keywords": [],
   "author": "",
