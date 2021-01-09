@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>RESULT</h1>
+  </div>
+  <div class="col-md-6 p-2 mc-auto">
+    <form class="d-flex" action="/players/search?name={{searchterm}}" method="GET">
+        <input class="form-control me-2" type="search" name="name">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+  <div class="row playerRow">
+    <div class="col-md-3">
+      <h3>
+        {{player.name}}
+      </h3>
+    </div>
+    <div class="col-md-2">
+      <h3>
+        {{player.alias}}
+      </h3>
+    </div>
+    <div class="col-md-3">
+      <h3>
+        {{player.email}}
+      </h3>
+    </div>
+    <div class="col-md-2">
+      <a href="/players/edit/{{id}}" class="btn btn-primary btnList">
+        Edit
+      <a>
+    </div>
+    <div class="col-md-2">
+      <a href="/players/delete/{{id}}" class="btn btn-danger btnList">
+        Delete
+      </a>
+    </div>
+  </div>

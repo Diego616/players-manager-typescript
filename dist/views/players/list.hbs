@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>PLAYERS LIST</h1>
+  </div>
+  <div class="col-md-6 p-2 mc-auto">
+    <form class="d-flex" action="/players/search?name={{searchterm}}" method="GET">
+        <input class="form-control me-2" type="search" name="name">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+{{#each players}}
+  <div class="row playerRow">
+    <div class="col-md-3">
+      <h3>
+        {{name}}
+      </h3>
+    </div>
+    <div class="col-md-2">
+      <h3>
+        {{alias}}
+      </h3>
+    </div>
+    <div class="col-md-3">
+      <h3>
+        {{email}}
+      </h3>
+    </div>
+    <div class="col-md-2">
+      <a href="/players/edit/{{id}}" class="btn btn-primary btnList">
+        Edit
+      <a>
+    </div>
+    <div class="col-md-2">
+      <a href="/players/delete/{{id}}" class="btn btn-danger btnList">
+        Delete
+      </a>
+    </div>
+  </div>
+{{/each}}
+<div class="row justify-content-center m-4" >
+  <nav aria-label="Page navigation justify-content-center">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="/players/list/{{previous}}">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="/players/list/{{next}}">Next</a></li>
+  </ul>
+</nav>
+</div>
